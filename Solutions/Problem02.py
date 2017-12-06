@@ -1,4 +1,8 @@
-print("Input the first spreadsheet. Calculation will start on the first empty line.")
+# ------Input----- #
+answer1 = 0
+answer2 = 0
+
+print("Input the spreadsheet. Calculation will start on the first empty line.")
 inputList = []
 
 while True:
@@ -8,14 +12,10 @@ while True:
     inputList.append(inputString)
 
 # ------Part 1------ #
-answer1 = 0
-
 for entry in inputList:
     cells = entry.split()
     numbers = list(map(int, cells))
     answer1 += max(numbers) - min(numbers)
-
-print("Answer 1: " + str(answer1))
 
 
 # ------Part 2------ #
@@ -26,8 +26,6 @@ def dividing(divisor, dividend):
         return 0
 
 
-answer2 = 0
-
 for entry in inputList:
     cells = entry.split()
     numbers = list(map(int, cells))
@@ -35,4 +33,6 @@ for entry in inputList:
         dividedNumbers = list(map(lambda x: dividing(n, x), numbers))
         answer2 += int(sum(dividedNumbers))
 
+# ------Output----- #
+print("Answer 1: " + str(answer1))
 print("Answer 2: " + str(answer2))
